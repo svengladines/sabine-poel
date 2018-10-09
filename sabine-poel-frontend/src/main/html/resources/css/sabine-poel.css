@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6,h7 {
     background-color: transparent;
 }
 
-.occam-home {
+.sabine-home {
 	width: 100vw;
 	height: 100vh;
 	margin: 0px;
@@ -59,6 +59,12 @@ h1,h2,h3,h4,h5,h6,h7 {
 
 .sabine-home-cheatsheet > ul {
 	list-style: none;
+	margin-right: 1em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	padding-right: 1em;
+	border-top: 0.2em black solid;
+	border-bottom: 0.2em black solid;
 }
 
 .occam-section-img {
