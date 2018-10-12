@@ -51,13 +51,19 @@ h1,h2,h3,h4,h5,h6,h7 {
 	margin: 0px;
 }
 
-.sabine-home-slogan {
+#sabine-home-slogan {
 	margin-left: 2em;
 	padding-left: 1em;
 	border-left: 1em black solid;
 }
 
-.sabine-home-cheatsheet > ul {
+#sabine-home-quote {
+	text-align: center;
+	line-height: 3em;
+	background: #eeeeee;
+}
+
+#sabine-home-cheatsheet > ul {
 	list-style: none;
 	margin-right: 1em;
 	padding-top: 0.5em;
@@ -65,6 +71,20 @@ h1,h2,h3,h4,h5,h6,h7 {
 	padding-right: 1em;
 	border-top: 0.2em black solid;
 	border-bottom: 0.2em black solid;
+	line-height: 2em;
+}
+
+#sabine-home-more {
+	position:absolute;
+	left: 1em;
+	bottom: 1em;
+	margin-bottom: 1em;
+	padding: 1em;
+	background-color: black;
+	color:white;
+	animation-name: more;
+    animation-duration: 4s;
+	
 }
 
 .occam-section-img {
@@ -79,6 +99,15 @@ h1,h2,h3,h4,h5,h6,h7 {
 	height: 100%;
 }
 
+.sabine-home-content {
+	display: flex;
+	width: 100%;
+}
+
+.sabine-home-content-div {
+	width:33%;
+}
+
 .occam-not-home {
 	
 	display: none;
@@ -90,4 +119,9 @@ h1,h2,h3,h4,h5,h6,h7 {
 	width: 100%;
 	text-align: center;
 	
+}
+
+@keyframes more {
+    from {opacity: 0.0;}
+    to {opacity: 1.0;}
 }

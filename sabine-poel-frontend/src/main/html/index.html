@@ -8,10 +8,8 @@
 		<link rel="stylesheet" type="text/css" href="libraries/bootstrap-3.3.7/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="resources/css/sabine-poel.css">
 		
-		<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
-
+		<script type="text/javascript" src="libraries/jquery-3.2.1/jquery.js"></script>
 		<script type="text/javascript" src="libraries/bootstrap-3.3.7/js/bootstrap.js"></script>
-
 </head>
 
 <body>
@@ -33,31 +31,41 @@
   		</div>
 		</nav>
 	</header>
+		
+	<div class="sabine-home-content">
 	
-	<div class="sabine-home-slogan pull-left">
-		<h1>Sabine Poel</h1>
-		<h1>Relatiebemiddeling</h1>
+		<div class="sabine-home-content-div">
+			<div id="sabine-home-slogan" >
+				<h1>Sabine Poel</h1>
+				<h1>Relatiebemiddeling</h1>
+			</div>
+		</div>
+		
+		<div id="sabine-home-quote" class="sabine-home-content-div">
+			<code>
+					"In a conflict, <br/> being willing to change <br/> allows you to move <br/> from a point of view <br/> to a viewing point – <br/>a higher, more expansive place, <br/> from which you can see both sides." <br/> (Thomas Crum)
+			</code>
+		</div>
+	
+		<div id="sabine-home-cheatsheet" class="sabine-home-content-div">
+				<ul>
+					<li title="telefoon">016/12.13.17</li>
+					<li title="gsm">0499/12.13.17</li>
+					<li title="e-mail">info@sabinepoel.be</li>
+					<li title="street">Houwaartsebaan 120</li>
+					<li title="town">Linden</li>
+				</ul>
+		</div>
+		
 	</div>
 	
-	<div class="sabine-home-cheatsheet pull-right">
-		<ul>
-			<li title="telefoon">016/12.13.17</li>
-			<li title="gsm">0499/12.13.17</li>
-			<li title="e-mail">info@sabinepoel.be</li>
-			<li title="street">Houwaartsebaan 120</li>
-			<li title="town">Linden</li>
-		</ul>
-	</div>
-	
-	<div class="sabine-home-quote">
-		<code>
-				"In a conflict, <br/> being willing to change <br/> allows you to move <br/> from a point of view <br/> to a viewing point – <br/>a higher, more expansive place, <br/> from which you can see both sides." <br/> (Thomas Crum)
-		</code>
+	<div id="sabine-home-more" class="sabine-home-more">
+		<a href="#sabine">Lees meer</a>
 	</div>
 	
 </div>
 
-	<div class="occam-not-home hidden">
+	<div class="sabine-not-home hidden">
 		
 		<section>
 		
@@ -65,7 +73,7 @@
 			
 				<img class="col-md-4 occam-section-img" src="resources/images/sabine-poel-large.jpg"/>
 			
-				<div class="col-md-8 occam-section-text">
+				<div id="sabine" class="col-md-8 occam-section-text">
 					<h1>Sabine</h1>				
 					<p>
 						Mijn naam is Sabine Poel. In 2006 ben ik als klinisch psychologe optie kinderen en jeugdigen afgestudeerd aan de KU Leuven. In 2012 behaalde ik mijn diploma als systeemtherapeute.
@@ -89,8 +97,6 @@
 		<section>
 		
 			<div class="row">
-			
-				<img class="col-md-4 occam-section-img" src="resources/images/sabine-poel-large.jpg"/>
 			
 				<div class="col-md-8 occam-section-text">
 					<h1>Bemiddeling</h1>
@@ -124,8 +130,6 @@
 		
 			<div class="row">
 			
-				<img class="col-md-4 occam-section-img" src="resources/images/sabine-poel-large.jpg"/>
-			
 				<div class="col-md-8 occam-section-text">
 					<h1>Tarieven</h1>
 			
@@ -142,8 +146,6 @@
 		<section>
 		
 			<div class="row">
-			
-				<img class="col-md-4 occam-section-img" src="resources/images/sabine-poel-large.jpg"/>
 			
 				<div class="col-md-8 occam-section-text">
 					<h1>Afspraak</h1>
@@ -171,6 +173,31 @@
 		</section>
 	
 	</div>
+	
+	<script>
+		var $jq = jQuery.noConflict();
+		
+		$jq("#sabine-home-more").click( function() {
+	    	$jq(".sabine-not-home").removeClass("hidden");
+	    });
+		
+		$jq(document).ready(function($jq){
+			
+		    var $root = $jq('html, body');
+		    $jq('a[href^="#"]').click(function() {
+		        var href = $jq.attr(this, 'href');
+		        $root.animate({
+		            scrollTop: $jq(href).offset().top
+		        }, 500, function () {
+		            window.location.hash = href;
+		        });
+		         
+		        return false;
+		    });
+		    
+		    
+	})
+	</script>
 	
 </body>
 
