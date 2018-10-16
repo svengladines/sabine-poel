@@ -2,6 +2,8 @@ html {
 }
 
 body {
+	font-family: "Verdana", sans-serif;
+	font-size: 20px;
 }
 
 section {
@@ -31,7 +33,7 @@ h1,h2,h3,h4,h5,h6,h7 {
 
 .occam-navbar a {
     padding: 15px;
-    font-size: 14px;
+    font-size: 20px;
     color: #292f29;
     letter-spacing: 2px;
     text-decoration: none;
@@ -58,6 +60,7 @@ h1,h2,h3,h4,h5,h6,h7 {
 }
 
 #sabine-home-quote {
+	font-family: "Monospace";
 	text-align: center;
 	line-height: 3em;
 	background: #eeeeee;
@@ -94,9 +97,14 @@ h1,h2,h3,h4,h5,h6,h7 {
 	margin-right: 0em;
 }
 
-.occam-section-text {
+.sabine-section-text {
 	background-color: white;
-	height: 100%;
+	color: #666666;
+}
+
+.sabine-section-text > p > strong {
+	color: #6666aa;
+	font-size: larger;
 }
 
 .sabine-home-content {
