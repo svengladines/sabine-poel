@@ -6,6 +6,10 @@
 		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
 	-->
 		<link rel="stylesheet" type="text/css" href="libraries/bootstrap-3.3.7/css/bootstrap.css">
+		
+		<!-- Awesome fonts -->
+    	<link  rel="stylesheet" href="libraries/font-awesome-4.5.0/css/font-awesome.css">
+    	
 		<link rel="stylesheet" type="text/css" href="resources/css/sabine-poel.css">
 		
 		<script type="text/javascript" src="libraries/jquery-3.2.1/jquery.js"></script>
@@ -37,7 +41,7 @@
 		<div class="sabine-home-content-div">
 			<div id="sabine-home-slogan" >
 				<h1>Sabine Poel</h1>
-				<h1>Relatiebemiddeling</h1>
+				<h1>Familiaal bemiddelaar</h1>
 			</div>
 		</div>
 		
@@ -47,20 +51,20 @@
 			</p>
 		</div>
 	
-		<div id="sabine-home-cheatsheet" class="sabine-home-content-div">
+		<div class="sabine-home-content-div">
+			<div id="sabine-home-cheatsheet" >
 				<ul>
-					<li title="telefoon">016/12.13.17</li>
-					<li title="gsm">0499/12.13.17</li>
-					<li title="e-mail">info@sabinepoel.be</li>
-					<li title="street">Houwaartsebaan 120</li>
-					<li title="town">Linden</li>
+					<li title="gsm" class="sabine-cheat-mobile">0484/76.73.80</li>
+					<li title="e-mail" class="sabine-cheat-email">sabinepoel@gmail.com</li>
+					<li title="street" class="sabine-cheat-street">Houwaartsebaan 120, Linden</li>
 				</ul>
+			</div>
 		</div>
 		
 	</div>
 	
-	<div id="sabine-home-more" class="sabine-home-more">
-		<a href="#sabine">Lees meer</a>
+	<div id="sabine-home-more-button">
+		<a id="sabine-home-more" href="#sabine">Lees meer</a>
 	</div>
 	
 </div>
@@ -72,7 +76,7 @@
 			<div class="row">
 			
 				<div id="sabine" class="col-md-12 sabine-section-text">
-					<h1>Sabine</h1>				
+					<div class="sabine-section-title">Sabine</div>				
 					<p>
 						Mijn naam is Sabine Poel. In 2006 ben ik als klinisch psychologe optie kinderen en jeugdigen afgestudeerd aan de KU Leuven. In 2012 behaalde ik mijn diploma als systeemtherapeute.
 					</p>
@@ -97,7 +101,7 @@
 			<div class="row">
 			
 				<div class="col-md-12 sabine-section-text">
-					<h1>Bemiddeling</h1>
+					<div class="sabine-section-title">Bemiddeling</div>
 			
 						<p>
 							Bij een scheiding komt er heel wat op je af en dien je meer dan ooit in communicatie te gaan met je ex-partner, terwijl dat nu net zo moeilijk is. Er dienen allerlei afspraken gemaakt te worden over het verblijf van de kinderen, de kosten van de kinderen, het huis, de financiën, enz. 
@@ -110,11 +114,14 @@
 							
 							Het resultaat van de bemiddeling is een overeenkomst.
 							
-							Daarnaast heeft bemiddeling nog een aantal andere voordelen:
+							Daarnaast heeft bemiddeling nog een aantal andere voordelen: 
 							
-								het is een goedkopere en kortere weg om tot goede afspraken te komen dan wanneer men zich tot de rechtbank richt;
+							<ul>
 							
-								er is ruimte om te spreken over wat jij belangrijk vindt, over je gevoelens en verlangens. Dit maakt dat je na een bemiddeling emotioneel sterker staat dan voordien;
+							<li>het is een goedkopere en kortere weg om tot goede afspraken te komen dan wanneer men zich tot de rechtbank richt;</li>
+							
+							<li>er is ruimte om te spreken over wat jij belangrijk vindt, over je gevoelens en verlangens. Dit maakt dat je na een bemiddeling emotioneel sterker staat dan voordien;</li>
+							</ul>								
 							
 							Afspraken waar alle betrokken partijen kunnen achterstaan zorgen achteraf voor minder discussies en fricties. Dit is beter voor alle partijen, zeker voor de kinderen.
 							
@@ -129,7 +136,7 @@
 			<div class="row">
 			
 				<div class="col-md-8 occam-section-text">
-					<h1>Tarieven</h1>
+					<div class="sabine-section-title">Tarieven</div>
 			
 					<p>
 					</p>
@@ -146,7 +153,7 @@
 			<div class="row">
 			
 				<div class="col-md-8 occam-section-text">
-					<h1>Afspraak</h1>
+					<div class="sabine-section-title">Afspraak</div>
 			
 						<p>
 						</p>
@@ -160,7 +167,7 @@
 		
 		<section>
 		
-			<h1>Contact</h1>
+			<div class="sabine-section-title">Contact</div>
 			
 			<p>
 			</p>
@@ -177,20 +184,22 @@
 		
 		$jq("#sabine-home-more").click( function() {
 	    	$jq(".sabine-not-home").removeClass("hidden");
+	    	var root = $jq('html, body');
+	    	var href = $jq.attr(this, 'href');
+	        root.animate({
+	            scrollTop: $jq(href).offset().top
+	        }, 500, function () {
+	            window.location.hash = href;
+	        });
+	        $jq("#sabine-home-more-button").addClass("hidden");
+	        return false;
 	    });
 		
 		$jq(document).ready(function($jq){
 			
 		    var $root = $jq('html, body');
 		    $jq('a[href^="#"]').click(function() {
-		        var href = $jq.attr(this, 'href');
-		        $root.animate({
-		            scrollTop: $jq(href).offset().top
-		        }, 500, function () {
-		            window.location.hash = href;
-		        });
-		         
-		        return false;
+		    	
 		    });
 		    
 		    
