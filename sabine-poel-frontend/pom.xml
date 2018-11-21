@@ -14,6 +14,31 @@
 	</parent>
 	
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/html</directory>
+				<includes>
+					<include>*</include>
+				</includes>
+        		<filtering>true</filtering>
+      		</resource>
+      		<resource>
+				<directory>src/main/html/resources</directory>
+				<includes>
+					<include>**/**</include>
+				</includes>
+        		<filtering>false</filtering>
+        		<targetPath>resources</targetPath>
+      		</resource>
+      		<resource>
+				<directory>src/main/html/libraries</directory>
+				<includes>
+					<include>**/**</include>
+				</includes>
+        		<filtering>false</filtering>
+        		<targetPath>libraries</targetPath>
+      		</resource>
+		</resources>
 		 <extensions>
       		<extension>
     			<groupId>org.apache.maven.wagon</groupId>
@@ -34,13 +59,13 @@
 	    					<goal>upload</goal>
 	    				</goals>
 	    				<configuration>
-	    					<fromDir>src/main/html/</fromDir>
-	    					<toDir>/</toDir>
+	    					<fromDir>${project.build.outputDirectory}</fromDir>
+	    					<toDir>sabine-poel</toDir>
 	    					<includes>
-	    							**/*.html,**/*.css,**/*.js
+	    							*.html,resources/**,libraries/**
 	    					</includes>
-	    					<url></url>
-	    					<serverId>ftp-sabine-poel</serverId>
+	    					<url>ftp://ftp.occamsoftware.be</url>
+	    					<serverId>ftp-occam</serverId>
 	    				</configuration>
 	    			</execution>
 	    		
