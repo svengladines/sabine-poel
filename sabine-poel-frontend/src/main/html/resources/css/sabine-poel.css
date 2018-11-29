@@ -131,14 +131,17 @@ h1,h2,h3,h4,h5,h6,h7 {
 	border-left: 1em navy solid;
 }
 
-.sabine-text {
-	color: #666666;
-	padding-left: 3em;
-	padding-right: 3em;
+.sabine-section {
+	border: solid 2px #1f172a;
+	padding: 4rem 4.5rem;
+	margin: 4rem 4rem;  
 }
 
 .sabine-right {
-	margin-right: 3em;
+}
+
+.sabine-text {
+	padding-right: 4rem;
 }
 
 .sabine-text > p > strong {
@@ -197,7 +200,7 @@ h1,h2,h3,h4,h5,h6,h7 {
 }
 
 .sabine-card-left {
-	width: 25%;
+	width: 75%;
 }
 
 .sabine-card-center {
@@ -206,6 +209,10 @@ h1,h2,h3,h4,h5,h6,h7 {
 
 .sabine-card-right {
 	width: 25%;
+}
+
+.sabine-card-text {
+	padding: 4rem;
 }
 
 #sabine-picture {
