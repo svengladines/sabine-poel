@@ -110,6 +110,7 @@ article > h2 {
 	text-align: center;
 	line-height: 3em;
 	background: white;
+	padding: 3em;
 }
 
 #sabine-sabine-photo {
@@ -132,18 +133,6 @@ article > h2 {
 
 .sabine-cheat-bar-item-text {
 	
-}
-
-#sabine-home-slogan {
-	margin-left: 2em;
-	padding-left: 1em;
-	border-left: 1em navy solid;
-}
-
-
-
-#sabine-home-cheatsheet-flexitem {
-	align-self: flex-start;	
 }
 
 #sabine-home-cheatsheet > ul {
@@ -177,48 +166,8 @@ article > h2 {
 	font-weight: bolder;
 }
 
-.sabine-section-title:before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 15px;
-    width: 32px;
-    border-top: solid 7px #221F1F;
-}
-
-.sabine-slogan {
-	align-self: flex-start;	
-	margin-left: 2em;
-	padding-left: 1em;
-	border-left: 1em navy solid;
-}
-
-.sabine-section {
-	border: solid 2px #1f172a;
-	padding: 4rem 4.5rem;
-	margin: 4rem 4rem;  
-}
-
-.sabine-right {
-}
-
-.sabine-text {
-	padding-right: 4rem;
-}
-
 .sabine-text > p > strong {
 	color: #9999bb;
-}
-
-.sabine-home-content {
-	display: flex;
-	align-items: center;
-	width: 100%;
-}
-
-.sabine-home-content-div {
-	margin-top: 1em;
-	width:33%;
 }
 
 .sabine-cheat-email::before {
