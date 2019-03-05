@@ -23,25 +23,27 @@
 <body id="home">
 
 	<script id="sabine-person-template" type="text/template">
+			<div class="person">
 				<div class="form-group">
 					<label for="organisation-name" class="col-sm-4 control-label">Voornaam en familienaam (*)</label>
 					<div class="col-sm-3">	
-						<input name="name" type="text" class="form-control" required="required"></input>
+						<input type="text" class="form-control input-name" required="required"></input>
 					</div>
 				</div>
 				<div class="form-group">
 						<label for="organisation-telefoon" class="col-sm-4 control-label">Telefoonnummer</label>
 						<div class="col-sm-2">
-							<input name="telephone" type="tel" class="form-control"></input>
+							<input type="tel" class="form-control input-telephone"></input>
 						</div>
 				</div>
 				<div class="form-group">
 						<label for="organisation-email" class="col-sm-4 control-label">E-mail (*)</label>
 						<div class="col-sm-3">
-							<input name="email" type="email" class="form-control" required="required" value=""></input>
+							<input type="email" class="form-control input-email" required="required" value=""></input>
 						</div>
 				</div>
 				<br/>
+			</div>
 	</script>
 
 	<header>
@@ -120,7 +122,7 @@
 				<div class="form-group">
 					<label class="col-sm-4 control-label">Verwerking gegevens (*)</label>
 					<div class="col-sm-8">
-						<input type="checkbox" required="required">&nbsp;Ik ben akkoord dat de van dit formulier verwerkt en gebruikt worden zoals aangegeven in de <a href="resources/files/privacy.pdf">privacy disclaimer</a>.
+						<input type="checkbox" required="required">&nbsp;Ik ben akkoord dat de gegevens van dit formulier verwerkt en gebruikt worden zoals aangegeven in de <a href="resources/files/privacy.pdf">privacy disclaimer</a>.
 					</div>
 				</div>
 				 
@@ -205,6 +207,81 @@
 	        return false;
 			
 		};
+		
+		var serialize = function( element ) {
+		    var o = {};
+		    var a = element.serializeArray();
+		    $jq.each(a, function() {
+		        if (o[this.name] !== undefined) {
+		            if (!o[this.name].push) {
+		                o[this.name] = [o[this.name]];
+		            }
+		            o[this.name].push(this.value || '');
+		        } else {
+		            o[this.name] = this.value || '';
+		        }
+		    });
+		    return o;
+		};
+		
+		var serializePersons = function( elements ) {
+		    var o = new Array();
+		    $jq.each(elements, function() {
+		    	var name = $jq(this).find(".input-name").val();
+		    	var email = $jq(this).find(".input-email").val();
+		    	var telephone = $jq(this).find(".input-telephone").val();
+		    	var person = new Person(name,email,telephone);
+		       	o.push( person );
+		    });
+		    return o;
+		};
+		
+		var Person = function (name,email,telephone) {
+			this.name = name;
+			this.email = email;
+			this.telephone = telephone;
+		};
+		
+		$jq("#entryForm").submit( function( event ) {
+			
+			event.preventDefault();
+			
+			var type = "json";
+
+			var url = "${sabine-poel.backend}/api/entries";
+
+			var fdata 
+				= new FormData();
+		
+			var serializedForm
+				= serialize( $jq("#entryForm") )
+				
+			var serializedPersons
+				= serializePersons( $jq(".person") );
+			
+			serializedForm["persons"] = serializedPersons;
+
+			var json 
+				= JSON.stringify( serializedForm );
+			
+			// busyButton($jq("#submit"));
+
+			$jq.ajax({
+				type : "post",
+				url : url,
+				dataType : type,
+				contentType : "application/json",
+				processData : false,
+				data : json,
+				success : function( created ) {
+					success( $jq("#submit"), $jq("#submitStatus"), "Je aanvraag werd met succes verstuurd. U hoort snel iets van ons." );
+				},
+				error : function( response ) {
+					error($jq("#submit"), $jq("#submitStatus"), "Er trad een fout op. Probeer AUB opnieuw" );
+				}
+			});
+			
+		});
 		
 		$jq(document).ready(function($jq){
 			
