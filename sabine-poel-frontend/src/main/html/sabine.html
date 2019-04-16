@@ -1,0 +1,111 @@
+<html>
+
+<head>
+
+	<!-- fonts -->
+	<!--
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+	-->
+		<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="libraries/bootstrap-3.3.7/css/bootstrap.css">
+		
+		<!-- Awesome fonts -->
+    	<link  rel="stylesheet" href="libraries/font-awesome-4.5.0/css/font-awesome.css">
+    	
+		<link rel="stylesheet" type="text/css" href="resources/css/sabine-poel.css">
+		
+		<script type="text/javascript" src="libraries/jquery-3.2.1/jquery.js"></script>
+		<script type="text/javascript" src="libraries/bootstrap-3.3.7/js/bootstrap.js"></script>
+</head>
+
+<body id="home">
+
+	<header>
+		<nav class="navbar sabine-navbar">
+		  <a class="navbar-brand" href="#"></a>
+		  <div class="navbar-collapse collapse" id="navbar-collapse">
+		  	<ul class="nav navbar-nav navbar-right">
+		  		<li class="nav-item sabine-nav-link"> <a href="index.html">Terug</a> </li>
+	  			<li class="nav-item sabine-nav-button"> <a href="afspraak.html">Afspraak</a> </li>
+	  		</ul>
+  		</div>
+		</nav>
+	</header>
+	
+	<main>
+	
+		<aside>
+			<img src="" alt="Sabine Poel"/>
+		</aside>
+		
+		<article id="sabine-sabine">
+		
+				<div>
+			
+					<h1>Sabine</h1>
+			
+					<p>
+						Mijn naam is Sabine Poel. In 2006 ben ik als klinisch psychologe optie kinderen en jeugdigen afgestudeerd aan de KU Leuven. In 2012 behaalde ik mijn diploma als systeemtherapeute.
+					</p>
+					
+					<p>	 
+						In mijn therapeutisch werk kom ik in contact met kinderen, gezinnen en koppels die met problemen kampen. Bij het goed verkennen van deze problemen valt het me op dat er regelmatig sprake is van hevige discussies binnen echtscheidingssituaties, conflicten over de overeenkomst na echtscheiding, conflicten over het niet naleven van afspraken,... 
+					</p>
+					
+					<p>	
+						Vaak zijn het de kinderen die worden 'aangemeld bij de therapeut' omdat ze problemen hebben. Uit onderzoek blijkt dat kinderen bij een echtscheiding vooral lijden onder de mate van conflict dat er heerst tussen beide ouders. Wanneer er in een gezin of familie zo veel discussies zijn dat men er zelf niet meer uitgeraakt, dan is dit erg lastig om dragen en heeft het meer dan waarschijnlijk ook invloed op het persoonlijke functioneren van de gezinsleden. Ook nieuw samengestelde gezinnen staan voor heel wat uitdagingen om te komen tot een aangenaam aanvoelend nieuw evenwicht waarin ieder zich goed en geborgen kan voelen.
+					</p>
+					 
+					<p>
+						Vanuit dit aanvoelen heb ik me bijgeschoold tot erkend familiaal bemiddelaar. Ik hoop dat het in een zo vroeg mogelijk stadium stimuleren van communicatie tussen beide ouders, in nieuw samengestelde gezinnen, … kan helpen om toekomstige problemen en fricties tot een minimum te beperken. Mijn overtuiging is dat dit ten goede komt zowel aan de kinderen als aan de ouders en plusouders en het bredere netwerk rondom hen.
+					</p>
+					
+					<p>
+						Het feit dat ik zowel kindertherapeute als familiaal bemiddelaar ben is een meerwaarde daar ik (indien nodig) de kinderen actief mee kan betrekken in het bemiddelingsproces. Dit door bijvoorbeeld ook individueel met hen te spelen en te spreken.
+					</p>
+				
+				</div>
+				
+		</article>
+		
+	</main>
+	
+	<footer>
+		<a class="footer-data" href="mailto:sabinepoel@gmail.com">sabinepoel@gmail.com</a>
+		<a class="footer-data" href="tel:+32484767380">0484/76.73.80</a>
+		<a class="footer-data" href="tel:+32484767380">Houwaartstraat 114, Linden</a>
+	</footer>
+			
+</body>
+	
+	<script>
+		var $jq = jQuery.noConflict();
+		
+		$jq("#sabine-home-more-link").click( function() {
+	    	$jq(".sabine-not-home").removeClass("hidden");
+	    	var root = $jq('html, body');
+	    	var href = $jq.attr(this, 'href');
+	        root.animate({
+	            scrollTop: $jq(href).offset().top
+	        }, 500, function () {
+	            window.location.hash = href;
+	        });
+	        $jq("#sabine-home-more-button").addClass("hidden");
+	        return false;
+	    });
+		
+		$jq(document).ready(function($jq){
+			
+		    var $root = $jq('html, body');
+		    $jq('a[href^="#"]').click(function() {
+		    	
+		    });
+		    
+		    
+	})
+	</script>
+	
+</body>
+
+</html>

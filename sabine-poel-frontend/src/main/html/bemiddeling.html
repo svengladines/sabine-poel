@@ -1,0 +1,120 @@
+<html>
+
+<head>
+
+	<!-- fonts -->
+	<!--
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+	-->
+		<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
+		
+		<link rel="stylesheet" type="text/css" href="libraries/bootstrap-3.3.7/css/bootstrap.css">
+		
+		<!-- Awesome fonts -->
+    	<link  rel="stylesheet" href="libraries/font-awesome-4.5.0/css/font-awesome.css">
+    	
+		<link rel="stylesheet" type="text/css" href="resources/css/sabine-poel.css">
+		
+		<script type="text/javascript" src="libraries/jquery-3.2.1/jquery.js"></script>
+		<script type="text/javascript" src="libraries/bootstrap-3.3.7/js/bootstrap.js"></script>
+</head>
+
+<body id="home">
+
+	<header>
+		<nav class="navbar sabine-navbar">
+		  <a class="navbar-brand" href="#"></a>
+		  <div class="navbar-collapse collapse" id="navbar-collapse">
+		  	<ul class="nav navbar-nav navbar-right">
+		  		<li class="nav-item sabine-nav-link"> <a href="index.html">Terug</a> </li>
+	  			<li class="nav-item sabine-nav-button"> <a href="afspraak.html">Afspraak</a> </li>
+	  		</ul>
+  		</div>
+		</nav>
+	</header>
+	
+	<main>
+	
+		<aside>
+			<img src="" alt="Bemiddeling-illustratie"/>
+		</aside>
+		
+		<article id="sabine-sabine">
+		
+				<div>
+			
+					<h1>Bemiddeling</h1>
+			
+					<p>
+						Bij een scheiding komt er heel wat op je af en dien je meer dan ooit in communicatie te gaan met je ex-partner, terwijl dat nu net zo moeilijk is. 
+						Er dienen allerlei afspraken gemaakt te worden over het verblijf van de kinderen, de kosten van de kinderen, het huis, de financiën, enz.
+						Vaak wordt je ook geconfronteerd met vragen als: hoe vertellen we het tegen de kinderen? Wat is een goed voor een kind op welke leeftijd?, enz.
+					</p>
+					
+					<p>
+						Als je voor bemiddeling kiest, kies je ervoor om je conflicten als ex-partners of als ouders in eigen handen te houden. Je wil je ouderschap of je echtscheiding samen met je ex-partner regelen, en dit door dialoog in plaats van door strijd.
+						Als ex-partner en als ouder ben je het best geplaatst om zelf te zoeken naar goede regelingen voor jou en de kinderen. Enkel afspraken waar alle betrokkenen zich kunnen in vinden zijn op lange termijn haalbaar en zorgen voor weinig discussies achteraf.
+						Bemiddeling is altijd gebaseerd op "vrijwilligheid", wat betekent dat men niet kan gedwongen worden om in bemiddeling te gaan.
+					</p>
+						
+					<p>
+						Het resultaat van de bemiddeling is een overeenkomst.
+						
+						Daarnaast heeft bemiddeling nog een aantal andere voordelen:
+						
+					</p> 
+						
+						<ul>
+						
+						<li>het is een goedkopere en kortere weg om tot goede afspraken te komen dan wanneer men zich tot de rechtbank richt;</li>
+						
+						<li>er is ruimte om te spreken over wat jij belangrijk vindt, over je gevoelens en verlangens. Dit maakt dat je na een bemiddeling emotioneel sterker staat dan voordien;</li>
+						</ul>								
+					<p>
+						Afspraken waar alle betrokken partijen kunnen achterstaan zorgen achteraf voor minder discussies en fricties. Dit is beter voor alle partijen, zeker voor de kinderen.
+					</p>
+				
+				</div>
+				
+		</article>
+		
+	</main>
+	
+	<footer>
+		<a class="footer-data" href="mailto:sabinepoel@gmail.com">sabinepoel@gmail.com</a>
+		<a class="footer-data" href="tel:+32484767380">0484/76.73.80</a>
+		<a class="footer-data" href="tel:+32484767380">Houwaartstraat 114, Linden</a>
+	</footer>
+			
+</body>
+	
+	<script>
+		var $jq = jQuery.noConflict();
+		
+		$jq("#sabine-home-more-link").click( function() {
+	    	$jq(".sabine-not-home").removeClass("hidden");
+	    	var root = $jq('html, body');
+	    	var href = $jq.attr(this, 'href');
+	        root.animate({
+	            scrollTop: $jq(href).offset().top
+	        }, 500, function () {
+	            window.location.hash = href;
+	        });
+	        $jq("#sabine-home-more-button").addClass("hidden");
+	        return false;
+	    });
+		
+		$jq(document).ready(function($jq){
+			
+		    var $root = $jq('html, body');
+		    $jq('a[href^="#"]').click(function() {
+		    	
+		    });
+		    
+		    
+	})
+	</script>
+	
+</body>
+
+</html>
