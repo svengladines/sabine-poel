@@ -22,12 +22,6 @@ h1, h2 {
 	margin-bottom: 0.5em;
 }
 
-#home {
-	min-height: 100vh;
-	min-width: 100vw;
-	height: 100%;	
-}
-
 header {
 	width: 100%;
 	align-self: flex-start;
@@ -44,6 +38,16 @@ footer {
 	width: 100%;
 	display: flex;
 	justify-content: space-evenly;
+}
+
+#home {
+	min-height: 100vh;
+	min-width: 100vw;
+	height: 100%;	
+}
+
+#tarieven > main {
+	width: 100%;	
 }
 
 .info {
@@ -76,10 +80,6 @@ aside {
 	max-width: 33%;
 	margin: 1em;
 	margin-left: 2em;
-}
-
-footer {
-
 }
 
 footer > .footer-data {
@@ -250,6 +250,33 @@ article > h2 {
 
 .sabine-link {
 	display: block;
+}
+
+/* div-tables */
+.table {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 3em 0;
+    padding: 0;
+}
+
+.table .table-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  padding: 0.8em 1.2em;
+  overflow: hidden;
+}
+
+.table--4cols > .table-cell {
+  min-width: 25%;
+  width: 25%;
+}
+
+.table--3cols > .table-cell {
+  width: 33.33%;
+}
+.table--2cols > .table-cell {
+  width: 50%;
 }
 
 @keyframes more {
