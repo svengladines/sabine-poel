@@ -18,7 +18,7 @@ import be.occam.utils.spring.configuration.ConfigurationProfiles;
 
 @Configuration
 @Profile(ConfigurationProfiles.PRODUCTION)
-public class InAcsiGoogleConfig {
+public class SabinePoelGoogleConfig {
 	
 	@Configuration
 	static class DomainConfigShared {

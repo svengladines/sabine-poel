@@ -21,9 +21,11 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 
 import be.occam.sabine.poel.domain.object.Entry;
+import be.occam.sabine.poel.domain.object.Person;
 import be.occam.sabine.poel.domain.people.MailMan;
 import be.occam.sabine.poel.domain.people.Secretary;
 import be.occam.sabine.poel.web.dto.EntryDTO;
+import be.occam.sabine.poel.web.dto.PersonDTO;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
@@ -41,14 +43,16 @@ public class EntryService {
 	@Resource
 	protected Secretary secretary;
 	
-	protected final String fromEmailAddress;
-	protected final String toEmailAddress;
+	protected final String robotEmailAddress;
+	protected final String clientEmailAddress;
+	protected final String occamEmailAddress;
 	
-	public EntryService( String fromEmailAddress, String toEmailAddress ) {
-		this.fromEmailAddress = fromEmailAddress;
-		this.toEmailAddress = toEmailAddress;
+	public EntryService( String robotEmailAddress, String clientEmailAddress, String occamEmailAddress ) {
+		this.robotEmailAddress = robotEmailAddress;
+		this.clientEmailAddress = clientEmailAddress;
+		this.occamEmailAddress = occamEmailAddress;
 		
-		logger.info( "entry service started, from-email address is [{}], to-email address is [{}]", fromEmailAddress, toEmailAddress );
+		logger.info( "entry service started, robot email address is [{}], client email address is [{}], occam email address = [{}]", this.robotEmailAddress, this.clientEmailAddress, this.occamEmailAddress );
 	}
 	
 	public ResponseEntity<EntryDTO> accept( EntryDTO entryDTO) {
@@ -59,12 +63,12 @@ public class EntryService {
 			= Entry.from( entryDTO );
 		
 		MimeMessage message
-			= this.formatEntryReceivedMessage( entry, this.toEmailAddress );
+			= this.formatEntryReceivedMessage( entry, this.clientEmailAddress );
 		
 		this.mailMan.deliver( message );
 		
 		MimeMessage messageForSven
-			= this.formatEntryReceivedForSvenMessage( entry, "sven.gladines@gmail.com" );
+			= this.formatEntryReceivedForSvenMessage( entry, this.occamEmailAddress );
 		
 		this.mailMan.deliver( messageForSven );
 		
@@ -106,9 +110,18 @@ public class EntryService {
 			// SGL| GAE does not support multipart_mode_mixed_related (default, when flag true is set)
 			MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_NO, "utf-8");
 				
-			helper.setFrom( this.fromEmailAddress );
+			helper.setFrom( this.robotEmailAddress );
 			helper.setTo( recipients );
-			helper.setSubject( String.format( "Nieuwe aanmelding: %s", entry.getPersons().get( 0 ).getName() ) );
+			
+			StringBuilder subject
+				= new StringBuilder( "Nieuwe aanmelding: ");
+		
+			for ( Person person : entry.getPersons() ) {
+				subject.append( person.getName() );
+				subject.append( "," );
+			}
+		
+			helper.setSubject( subject.toString().substring( 0, subject.length() - 1 ) );
 				
 			String text
 				= bodyWriter.toString();
@@ -161,9 +174,18 @@ public class EntryService {
 			// SGL| GAE does not support multipart_mode_mixed_related (default, when flag true is set)
 			MimeMessageHelper helper = new MimeMessageHelper(message, MimeMessageHelper.MULTIPART_MODE_NO, "utf-8");
 				
-			helper.setFrom( this.fromEmailAddress );
+			helper.setFrom( this.robotEmailAddress );
 			helper.setTo( recipients );
-			helper.setSubject( String.format( "Nieuwe aanmelding: %s ...", entry.getPersons().get( 0 ).getName() ) );
+			
+			StringBuilder subject
+				= new StringBuilder( "Nieuwe aanmelding: ");
+			
+			for ( Person person : entry.getPersons() ) {
+				subject.append( person.getName().substring(0, Math.min(3, person.getName().length())) );
+				subject.append( "," );
+			}
+			
+			helper.setSubject( subject.toString().substring( 0, subject.length() - 1 ) );
 				
 			String text
 				= bodyWriter.toString();

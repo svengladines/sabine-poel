@@ -1,0 +1,21 @@
+<p>
+Beste Sabine
+</p>
+
+<p>
+Er kwam zonet een aanmelding binnen via het het webformulier.
+</p>
+
+<h2>Gegevens</h2>
+
+	<#list entry.persons as person>
+	<p>
+  		<span>${person.name}</span><br/>
+  		<span>${person.email}</span><br/>
+  		<span>${person.telephone}</span><br/>
+  	</p>
+	</#list>
+
+Vriendelijke groet
+
+Occam Software

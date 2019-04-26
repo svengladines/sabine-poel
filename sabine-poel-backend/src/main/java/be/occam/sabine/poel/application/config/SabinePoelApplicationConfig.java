@@ -18,10 +18,10 @@ import be.occam.sabine.poel.web.util.NoopGuard;
 import be.occam.utils.spring.configuration.ConfigurationProfiles;
 
 @Configuration
-public class InAcsiApplicationConfig {
+public class SabinePoelApplicationConfig {
 	
 	final static Logger logger
-		= LoggerFactory.getLogger( InAcsiApplicationConfig.class );
+		= LoggerFactory.getLogger( SabinePoelApplicationConfig.class );
 
 	final static String BASE_PKG 
 		= "be.occam.sabine.poel";
@@ -48,14 +48,21 @@ public class InAcsiApplicationConfig {
 		}
 		
 		@Bean
-		String acsiEmailAddress() {
+		String robotEmailAddress() {
 			
 			return "occamsoftware.be@gmail.com"; 
 			
 		}
 		
 		@Bean
-		String acsiDigitaalEmailAddress() {
+		String clientEmailAddress() {
+			
+			return "sven.gladines@gmail.com"; 
+			
+		}
+		
+		@Bean
+		String occamEmailAddress() {
 			
 			return "occamsoftware.be@gmail.com"; 
 			
@@ -76,8 +83,8 @@ public class InAcsiApplicationConfig {
 		}
 		
 		@Bean
-		public EntryService entryService( String acsiDigitaalEmailAddress, String acsiEmailAddress ) {
-			return new EntryService( acsiDigitaalEmailAddress, acsiEmailAddress );
+		public EntryService entryService( String robotEmailAddress, String clientEmailAddress, String occamEmailAddress ) {
+			return new EntryService( robotEmailAddress, clientEmailAddress, occamEmailAddress );
 		}
 		
 	}

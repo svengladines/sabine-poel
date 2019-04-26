@@ -25,7 +25,8 @@ import be.occam.sabine.poel.web.dto.EntryDTO;
 
 @Controller
 @RequestMapping(value="/entries")
-@CrossOrigin(origins = "http://www.bemiddeling-sabine.be")
+// @CrossOrigin(origins = {"http://www.bemiddeling-sabine.be","https://www.bemiddeling-sabine.be","http://www.occamsoftware.be","http://www.occamsoftware.be"})
+@CrossOrigin(origins="*")
 public class EntriesController {
 	
 	private final Logger logger 
