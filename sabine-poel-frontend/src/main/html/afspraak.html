@@ -15,6 +15,8 @@
 		<script type="text/javascript" src="libraries/jquery-3.2.1/jquery.js"></script>
 		<script type="text/javascript" src="libraries/bootstrap-3.3.7/js/bootstrap.js"></script>
 		<script type="text/javascript" src="libraries/mustache-2.3.0/mustache.js"></script>
+		
+		<script type="text/javascript" src="resources/javascript/sabine.js"></script>
 </head>
 
 <body>
@@ -211,7 +213,7 @@
 			var json 
 				= JSON.stringify( serializedForm );
 			
-			// busyButton($jq("#submit"));
+			busyButton($jq("#submit"));
 
 			$jq.ajax({
 				type : "post",
@@ -221,7 +223,7 @@
 				processData : false,
 				data : json,
 				success : function( created ) {
-					success( $jq("#submit"), $jq("#submitStatus"), "Je aanvraag werd met succes verstuurd. U hoort snel iets van ons." );
+					success( $jq("#submit"), $jq("#submitStatus"), "Je aanvraag werd met succes verstuurd. U hoort snel iets van me." );
 				},
 				error : function( response ) {
 					error($jq("#submit"), $jq("#submitStatus"), "Er trad een fout op. Probeer AUB opnieuw" );
@@ -235,11 +237,6 @@
 			addPerson();
 			addPerson();
 			
-		    var $root = $jq('html, body');
-		    $jq('a[href^="#"]').click(function() {
-		    	
-		    });
-		    
 		    
 	})
 	</script>

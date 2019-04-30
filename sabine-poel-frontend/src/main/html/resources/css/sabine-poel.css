@@ -25,6 +25,9 @@ h1, h2 {
 header {
 	width: 100%;
 	align-self: flex-start;
+	border-bottom-width: thin;
+	border-bottom-style: solid;
+	border-bottom-color: #dddddd;
 }
 
 main {
@@ -38,12 +41,26 @@ footer {
 	width: 100%;
 	display: flex;
 	justify-content: space-evenly;
+	border-top-width: thin;
+	border-top-style: solid;
+	border-top-color: #dddddd;
+}
+
+.footer-home {
+	border-top-style: none;
+}
+
+.footer-home {
+	color: white;
 }
 
 #home {
 	min-height: 100vh;
 	min-width: 100vw;
-	height: 100%;	
+	height: 100%;
+	background-image: url("../../resources/images/sea.jpg");
+	background-repeat: none;
+	background-size: cover;
 }
 
 #tarieven > main {
@@ -60,6 +77,8 @@ footer {
 	border-left-color: #444444;
 	border-left-width: thin;
 	border-left-style: solid;
+	border-left-color: white;
+	color: white;
 }
 
 article {
@@ -83,9 +102,12 @@ aside {
 }
 
 footer > .footer-data {
-	color: #000000;
 	width: 30%;
 	text-align: center;
+}
+
+.footer-home a {
+	color: white;
 }
 
 article > h2 {
@@ -182,6 +204,24 @@ article > h2 {
 
 .sabine-cheat-bar-item-text {
 	
+}
+
+#main-home {
+	width: 100%;
+}
+
+#sabine-home-clipboard {
+	width: 80%;
+	float: right;
+}
+
+.sabine-home-cell {
+	flex-grow: 1;
+	display: inline-block;
+	width: 33%;
+	max-width: 33%;
+	margin: 1em;
+	margin-right: 2em;
 }
 
 #sabine-home-cheatsheet > ul {
