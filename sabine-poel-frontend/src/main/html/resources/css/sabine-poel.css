@@ -32,6 +32,7 @@ header {
 
 main {
 	display: flex;
+	align-items: center;
 }
 
 footer {
@@ -174,14 +175,12 @@ article > h2 {
     justify-content: space-evenly;
 }
 
-#sabine-intro-quote {
-	display: none;
-	float: right;
-	font-family: "Monospace";
+#sabine-home-quote {
 	text-align: center;
 	line-height: 3em;
-	background: white;
+	color: #dddddd;
 	padding: 3em;
+	font-style: italic;
 }
 
 #sabine-sabine-photo {
