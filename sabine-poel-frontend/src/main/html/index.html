@@ -12,11 +12,13 @@
 		
 		<!-- Awesome fonts -->
     	<link  rel="stylesheet" href="libraries/font-awesome-4.5.0/css/font-awesome.css">
-    	
+    	<!-- Cookie consent -->
+    	<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
 		<link rel="stylesheet" type="text/css" href="resources/css/sabine-poel.css">
 		
 		<script type="text/javascript" src="libraries/jquery-3.2.1/jquery.js"></script>
 		<script type="text/javascript" src="libraries/bootstrap-3.3.7/js/bootstrap.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
 </head>
 
 <body id="home">
@@ -84,9 +86,27 @@
 		$jq(document).ready(function($jq){
 			
 		    var $root = $jq('html, body');
-		    $jq('a[href^="#"]').click(function() {
-		    	
-		    });
+		    window.cookieconsent.initialise({
+				  "palette": {
+				    "popup": {
+				      "background": "#252e39"
+				    },
+				    "button": {
+				      "background": "transparent",
+				      "text": "#14a7d0",
+				      "border": "#14a7d0"
+				    }
+				  },
+				  "cookie": {
+					  "name" : "cookieconsent-v1"
+				  },
+				  "content": {
+				    "message": "Deze website maakt gebruik van cookies, om uw bezoek zo aangenaam mogelijk te maken. De informatie die via deze cookies wordt verzameld, wordt in geen geval aangewend of doorgegeven voor enig ander gebruik.",
+				    "dismiss": "Ik ga akkoord",
+				    "link": "Meer informatie vind je hier.",
+				    "href": "cookies.html",
+				  }
+				});
 		    
 		    
 	})

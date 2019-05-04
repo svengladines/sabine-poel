@@ -2,11 +2,11 @@
   	<modelVersion>4.0.0</modelVersion>
 	
  	<groupId>be.occamsoftware.sabine.poel</groupId>
- 	<artifactId>inacsi-frontend</artifactId>
+ 	<artifactId>sabine-poel-frontend</artifactId>
   	<version>1.0-LATEST-SNAPSHOT</version>
   	<packaging>pom</packaging>
   	<name>sabine-poel-frontend</name>
-  	<description>inacsi-frontend</description>
+  	<description>sabine-poel-frontend</description>
 	<parent>
 		<artifactId>colloseum-parent-pom</artifactId>
 		<groupId>be.occam.colloseum</groupId>
@@ -60,7 +60,7 @@
 	    				</goals>
 	    				<configuration>
 	    					<fromDir>${project.build.outputDirectory}</fromDir>
-	    					<toDir>sabine-poel</toDir>
+	    					<toDir>bemiddeling-sabine</toDir>
 	    					<includes>
 	    							*.html,resources/**,libraries/**
 	    					</includes>
