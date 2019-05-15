@@ -2,7 +2,11 @@
 
 /* tags */
 
+html {
+}
+
 body {
+	height: 100%;
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Muli', sans-serif;
@@ -25,9 +29,6 @@ h1, h2 {
 header {
 	width: 100%;
 	align-self: flex-start;
-	border-bottom-width: thin;
-	border-bottom-style: solid;
-	border-bottom-color: #dddddd;
 }
 
 main {
@@ -42,9 +43,16 @@ footer {
 	width: 100%;
 	display: flex;
 	justify-content: space-evenly;
-	border-top-width: thin;
-	border-top-style: solid;
-	border-top-color: #dddddd;
+	color: white;
+}
+
+.footer-not-home {
+	background-color: #337ab7;
+	color: white;
+}
+
+.footer-not-home a {
+	color: white;
 }
 
 .footer-home {
@@ -60,8 +68,7 @@ footer {
 	min-width: 100vw;
 	height: 100%;
 	background-image: url("../../resources/images/sea.jpg");
-	background-repeat: none;
-	background-size: cover;
+	background-size: 100% 100%;
 }
 
 #tarieven > main {
@@ -175,13 +182,14 @@ article > h2 {
 }
 
 #sabine-home-quote {
+	font-family: 'Vollkorn', serif;
 	text-align: center;
 	line-height: 2em;
 	color: #dddddd;
 	padding: 3em;
 	font-style: italic;
-	font-weight: bolder;
-	font-size: small;
+	font-weight: bold;
+	font-size: medium;
 }
 
 #sabine-sabine-photo {
@@ -317,6 +325,12 @@ article > h2 {
 }
 .table--2cols > .table-cell {
   width: 50%;
+}
+
+#sabine-photo {
+	width: 25%;
+	float: right;
+	margin-left: 3em;
 }
 
 @keyframes more {
