@@ -1,5 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Muli:400,300);
 
+/* B: #4B7D7A, O: #CD9A6B */
+
 /* tags */
 
 html {
@@ -36,6 +38,8 @@ main {
 	align-items: center;
 }
 
+/* footer */
+
 footer {
 	width: 100%;
 	align-self: flex-end;
@@ -46,22 +50,7 @@ footer {
 	color: white;
 }
 
-.footer-not-home {
-	background-color: #337ab7;
-	color: white;
-}
-
-.footer-not-home a {
-	color: white;
-}
-
-.footer-home {
-	border-top-style: none;
-}
-
-.footer-home {
-	color: white;
-}
+/* home */
 
 #home {
 	min-height: 100vh;
@@ -69,6 +58,34 @@ footer {
 	height: 100%;
 	background-image: url("../../resources/images/sea.jpg");
 	background-size: 100% 100%;
+}
+
+.footer-home {
+	color: white;
+	border-top-style: none;
+}
+
+/* not-home */
+
+.not-home h1 {
+	color: #CD9A6B;
+	padding-bottom: 0.5em;
+	border-bottom-color: #dddddd;
+	border-bottom-style: solid;
+	border-bottom-width: 1px; 
+}
+
+.not-home h2 {
+	color: #777777;
+}
+
+.footer-not-home {
+	background-color: #4B7D7A;
+	color: white;
+}
+
+.footer-not-home a {
+	color: white;
 }
 
 #tarieven > main {
