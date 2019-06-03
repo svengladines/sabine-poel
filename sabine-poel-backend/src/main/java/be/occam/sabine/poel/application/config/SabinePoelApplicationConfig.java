@@ -57,7 +57,7 @@ public class SabinePoelApplicationConfig {
 		@Bean
 		String clientEmailAddress() {
 			
-			return "sven.gladines@gmail.com"; 
+			return "sabinepoel@gmail.com"; 
 			
 		}
 		

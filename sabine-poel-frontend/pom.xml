@@ -60,12 +60,13 @@
 	    				</goals>
 	    				<configuration>
 	    					<fromDir>${project.build.outputDirectory}</fromDir>
-	    					<toDir>bemiddeling-sabine</toDir>
+	    					<toDir>/</toDir>
 	    					<includes>
 	    							*.html,resources/**,libraries/**
 	    					</includes>
-	    					<url>ftp://ftp.occamsoftware.be</url>
-	    					<serverId>ftp-occam</serverId>
+	    					<url>ftp://ftp.bemiddeling-sabine.be</url>
+	    					<serverId>ftp-sabine-poel</serverId>
+	    					<controlEncoding>UTF-8</controlEncoding>
 	    				</configuration>
 	    			</execution>
 	    		
