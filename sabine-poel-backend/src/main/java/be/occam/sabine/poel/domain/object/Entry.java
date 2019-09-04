@@ -12,6 +12,8 @@ import be.occam.utils.timing.Timing;
 
 public class Entry {
 	
+	String reason;
+	String description;
 	List<Person> persons;
 	
 	public Entry() {
@@ -26,6 +28,22 @@ public class Entry {
 		this.persons = persons;
 	}
 	
+	public String getReason() {
+		return reason;
+	}
+
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public static EntryDTO dto( Entry from ) {
 		
 		EntryDTO to 
@@ -39,6 +57,9 @@ public class Entry {
 		}
 		
 		to.setPersons( persons );
+		
+		to.setReason( from.getReason() );
+		to.setDescription( from.getDescription() );
 		
 		return to;
 		
@@ -57,6 +78,8 @@ public class Entry {
 		}
 		
 		to.setPersons( persons );
+		to.setReason( from.getReason() );
+		to.setDescription( from.getDescription() );
 		
 		return to;
 		

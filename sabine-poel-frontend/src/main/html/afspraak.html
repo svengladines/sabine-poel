@@ -3,6 +3,7 @@
 
 <head>
 	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Barlow+Condensed" rel="stylesheet">
@@ -67,26 +68,46 @@
 			<p>
 					Een afspraak maken kan per telefoon, e-mail of via onderstaand formulier.
 			</p>
-		
-			<form id="entryForm" class="form-horizontal" role="form" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
 			
-				<p class="info">
+			<p class="info">
 					Velden met een (*) moet je zeker invullen.
-				</p>
-				
-				<p class="info">
-					Vul de gegevens in van alle personen die betrokken zijn bij de bemiddeling (minstens 2).
-				</p>
-				
-				<p class="info">
-					Na ontvangst van het formulier contacteer ik u zo snel mogelijk per e-mail.
-				</p>
-				
-				<p class="info">
-					Wil je je niet aanmelden voor een bemiddelingsgesprek maar voor psychologische hulp, gelieve u dan aan te melden via <a href="http://www.groepspraktijkacsi.be">www.groepspraktijkacsi.be</a> - afspraak - webformulier. 
-				</p>
+			</p>
+			
+			<p class="info">
+				Vul de gegevens in van alle personen die betrokken zijn bij de bemiddeling (minstens 2).
+			</p>
+			
+			<p class="info">
+				Na ontvangst van het formulier contacteer ik u zo snel mogelijk per e-mail.
+			</p>
+			
+			<p class="info">
+				Wil je je niet aanmelden voor een bemiddelingsgesprek maar voor psychologische hulp, gelieve u dan aan te melden via <a href="http://www.groepspraktijkacsi.be">www.groepspraktijkacsi.be</a> - afspraak - webformulier. 
+			</p>
+			
+			<div class="well">
+				<span>Ik wil een afspraak maken voor:</span>
+				<form id="selectForm" class="form-horizontal" role="form" method="post">
+					<div class="radio">
+	  					<label>
+	    					<input type="radio" name="pick" value="multiple">
+	    						bemiddeling
+	  					</label>
+					</div>
+					<div class="radio">
+					  <label>
+					    <input type="radio" name="pick" value="single">
+					    	gesprek als ouder-plusouder-grootouder
+					  </label>
+					</div>
+				</form>
+			</div>
+		
+			<form id="multipleForm" class="form-horizontal hidden" role="form" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
 				
 				<br/>
+				
+				<input name="reason" type="hidden" value="bemiddeling"/>
 				
 				<div id="sabine-persons">
 				</div>
@@ -95,6 +116,44 @@
 						<label for="organisation-email" class="col-sm-4 control-label"></label>
 						<div class="col-sm-3">
 							<button type="button" id="sabine-add-person" class="btn btn-primary"><i class="fa fa-plus"></i></button></button>
+						</div>
+				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-4 control-label">Verwerking gegevens (*)</label>
+					<div class="col-sm-8">
+						<input type="checkbox" required="required">&nbsp;Ik ben akkoord dat de gegevens van dit formulier verwerkt en gebruikt worden zoals aangegeven in de <a href="resources/files/gdpr-sabine-poel.pdf">privacy-verklaring</a>.
+					</div>
+				</div>
+				 
+				<div class="form-group">
+					<label class="col-sm-4 control-label"></label>
+					<div class="col-sm-8">
+						<button type="submit" id="submit" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp;Verstuur</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label"></label>
+					<div class="col-sm-8">
+						<div id="submitStatus" class="hidden"></div>
+					</div>
+				</div>
+				
+			</form>
+			
+			<form id="singleForm" class="form-horizontal" role="form" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+				
+				<br/>
+				
+				<input name="reason" type="hidden" value="gesprek"/>
+				
+				<div id="sabine-person">
+				</div>
+				
+				<div class="form-group">
+						<label for="description" class="col-sm-4 control-label">Korte uitleg</label>
+						<div class="col-sm-8">
+							<textarea name="description" class="form-control" rows="10" cols="64"></textarea>
 						</div>
 				</div>
 				
@@ -131,7 +190,7 @@
 	<footer class="footer-not-home">
 		<a class="footer-data" href="mailto:sabinepoel@gmail.com">sabinepoel@gmail.com</a>
 		<a class="footer-data" href="tel:+32484767380">0484/76.73.80</a>
-		<a class="footer-data" href="tel:+32484767380">Houwaartstraat 114, Linden</a>
+		<a class="footer-data" href="">Houwaartstraat 114, 3210 Linden (Lubbeek)</a>
 	</footer>
 			
 </body>
@@ -158,9 +217,8 @@
 			
 	    });
 		
-		var addPerson = function() {
+		var addPerson = function(container) {
 			
-			var container = $jq("#sabine-persons");
 			var template = $jq("#sabine-person-template").html();
 			var html = Mustache.to_html(template);
 			container.append( html );
@@ -203,7 +261,25 @@
 			this.telephone = telephone;
 		};
 		
-		$jq("#entryForm").submit( function( event ) {
+	$jq("input[type=radio][name=pick]").on("change", function() {
+			  switch ($jq(this).val()) {
+			    case "single":
+			      $jq("#sabine-person").html("");
+			      addPerson( $jq("#sabine-person") );
+			      $jq("#singleForm").removeClass("hidden");
+			      $jq("#multipleForm").addClass("hidden");
+			      break;
+			    case 'multiple':
+			    	$jq("#sabine-persons").html("");
+			       addPerson( $jq("#sabine-persons") );
+			       addPerson( $jq("#sabine-persons") );
+				   $jq("#multipleForm").removeClass("hidden");
+				   $jq("#singleForm").addClass("hidden");
+				   break;
+			  }
+	});
+		
+	$jq("#singleForm").submit( function( event ) {
 			
 			event.preventDefault();
 			
@@ -215,7 +291,48 @@
 				= new FormData();
 		
 			var serializedForm
-				= serialize( $jq("#entryForm") )
+				= serialize( $jq("#singleForm") )
+				
+			var serializedPersons
+				= serializePersons( $jq(".person") );
+			
+			serializedForm["persons"] = serializedPersons;
+
+			var json 
+				= JSON.stringify( serializedForm );
+			
+			busyButton($jq("#submit"));
+
+			$jq.ajax({
+				type : "post",
+				url : url,
+				dataType : type,
+				contentType : "application/json",
+				processData : false,
+				data : json,
+				success : function( created ) {
+					success( $jq("#submit"), $jq("#submitStatus"), "Je aanvraag werd met succes verstuurd. U hoort snel iets van me." );
+				},
+				error : function( response ) {
+					error($jq("#submit"), $jq("#submitStatus"), "Er trad een fout op. Probeer AUB opnieuw" );
+				}
+			});
+			
+		});
+		
+		$jq("#multipleForm").submit( function( event ) {
+			
+			event.preventDefault();
+			
+			var type = "json";
+
+			var url = "${sabine-poel.backend}/api/entries";
+
+			var fdata 
+				= new FormData();
+		
+			var serializedForm
+				= serialize( $jq("#multipleForm") )
 				
 			var serializedPersons
 				= serializePersons( $jq(".person") );
@@ -246,11 +363,8 @@
 		
 		$jq(document).ready(function($jq){
 			
-			addPerson();
-			addPerson();
-			
 		    
-	})
+	});
 	</script>
 	
 </body>

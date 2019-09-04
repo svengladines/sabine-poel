@@ -6,7 +6,12 @@ Beste Sabine
 Er kwam zonet een aanmelding binnen via het het webformulier.
 </p>
 
-<h2>Gegevens</h2>
+<h2>Reden</h2>
+<p>
+	${entry.reason}
+</p>
+
+<h2>Persoonsgegevens</h2>
 
 	<#list entry.persons as person>
 	<p>
@@ -15,6 +20,14 @@ Er kwam zonet een aanmelding binnen via het het webformulier.
   		<span>${person.telephone}</span><br/>
   	</p>
 	</#list>
+	
+<#if entry.description??>
+	<h2>Uitleg</h2>
+	<p>
+		${entry.description}
+	</p>
+</#if>
+
 
 Vriendelijke groet
 
