@@ -4,7 +4,7 @@ This project consists of a front-end and back-end.
 
 Front-end:
 
-Just some information pages and a web form which posts JSON to the back-end service.
+Just some information pages and a web form which posts JSON to the back-end service. Also: cookie consent popup & cookie page.
 
 Back-end:
 
