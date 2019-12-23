@@ -32,23 +32,32 @@
 <body id="home">
 
 	<header>
-		<nav class="navbar sabine-navbar">
-		  <a class="navbar-brand" href="#"></a>
-		  <div class="navbar-collapse collapse" id="navbar-collapse">
-		  	<ul class="nav navbar-nav navbar-right">
-		  		<li class="nav-item sabine-nav-link"> <a href="sabine.html">Sabine</a> </li>
-		  		<li class="nav-item sabine-nav-link"> <a href="bemiddeling.html">Bemiddeling</a> </li> 
-		  		<li class="nav-item sabine-nav-link"> <a href="links.html">Links</a> </li>
-		  		<li class="nav-item sabine-nav-link"> <a href="tarieven.html">Tarieven</a> </li>
-	  			<li class="nav-item sabine-nav-button"> <a href="afspraak.html">Afspraak</a> </li>
-	  		</ul>
+		<nav class="navbar navbar-default sabine-navbar">
+		<div class="container-fluid">
+			  <div class="navbar-header">
+	      		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+	        		<span class="sr-only">Toggle navigation</span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	        		<span class="icon-bar"></span>
+	      		</button>
+	    	  </div>
+			  <div class="navbar-collapse collapse" id="navbar-collapse">
+			  	<ul class="nav navbar-nav navbar-right">
+			  		<li class="nav-item sabine-nav-link"> <a href="sabine.html">Sabine</a> </li>
+			  		<li class="nav-item sabine-nav-link"> <a href="bemiddeling.html">Bemiddeling</a> </li> 
+			  		<li class="nav-item sabine-nav-link"> <a href="links.html">Links</a> </li>
+			  		<li class="nav-item sabine-nav-link"> <a href="tarieven.html">Tarieven</a> </li>
+		  			<li class="nav-item sabine-nav-button"> <a href="afspraak.html">Afspraak</a> </li>
+		  		</ul>
+	  		</div>
   		</div>
 		</nav>
 	</header>
 	
 	<main id="main-home">
 	
-		<div id="sabine-home-quote" class="sabine-home-cell">
+		<div id="sabine-home-quote" class="sabine-home-cell hidden-xs">
 			In a conflict, <br> being willing to change <br> allows you to move from a point of view <br> to a viewing point - <br>a higher, more expansive place, <br> from which you can see both sides. <br> (Thomas Crum)
 		</div>
 		
@@ -68,9 +77,11 @@
 	</main>
 	
 	<footer class="footer-home">
-		<a class="footer-data" href="mailto:sabinepoel@gmail.com">sabinepoel@gmail.com</a>
-		<a class="footer-data" href="tel:+32484767380">0484/76.73.80</a>
-		<a class="footer-data" href="">Houwaartstraat 114, 3210 Linden (Lubbeek)</a>
+		<div class="container-fluid">
+			<a class="footer-data col-xs-12 col-sm-4" href="mailto:sabinepoel@gmail.com">sabinepoel@gmail.com</a>
+			<a class="footer-data col-xs-12 col-sm-4" href="tel:+32484767380">0484/76.73.80</a>
+			<a class="footer-data col-xs-12 col-sm-4" href="">Houwaartstraat 114, 3210 Linden (Lubbeek)</a>
+		</div>
 	</footer>
 			
 </body>

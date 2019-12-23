@@ -126,7 +126,6 @@ aside {
 }
 
 footer > .footer-data {
-	width: 30%;
 	text-align: center;
 }
 
@@ -153,7 +152,6 @@ article > h2 {
     padding-bottom: 25px;
     background-color: white;
     border: none;
-    padding-right: 50px;
     margin-bottom: 0px;
 }
 
