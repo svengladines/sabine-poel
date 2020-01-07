@@ -64,6 +64,7 @@ footer {
 .footer-home {
 	color: white;
 	border-top-style: none;
+	width: 100%;
 }
 
 /* not-home */
@@ -240,10 +241,7 @@ article > h2 {
 }
 
 .sabine-home-cell {
-	flex-grow: 1;
 	display: inline-block;
-	width: 33%;
-	max-width: 33%;
 	margin: 1em;
 	margin-right: 2em;
 }
@@ -356,6 +354,18 @@ article > h2 {
     width: 60%;
     height: auto;
     margin-bottom: 2em;
+}
+
+#sabine-name {
+	font-size: 2em;
+}
+
+.sabine-skill {
+	font-size: 1.2em;
+}
+
+#footer-container {
+	width: 100%;
 }
 
 @keyframes more {

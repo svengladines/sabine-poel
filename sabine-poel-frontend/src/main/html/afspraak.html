@@ -143,19 +143,19 @@
 				<div class="form-group">
 					<label class="col-sm-4 control-label"></label>
 					<div class="col-sm-8">
-						<button type="submit" id="submit" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp;Verstuur</button>
+						<button type="submit" id="submitMultiple" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp;Verstuur</button>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-4 control-label"></label>
 					<div class="col-sm-8">
-						<div id="submitStatus" class="hidden"></div>
+						<div id="submitStatusMultiple" class="hidden"></div>
 					</div>
 				</div>
 				
 			</form>
 			
-			<form id="singleForm" class="form-horizontal" role="form" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
+			<form id="singleForm" class="form-horizontal hidden" role="form" method="post" enctype="application/x-www-form-urlencoded" accept-charset="utf-8">
 				
 				<br/>
 				
@@ -181,13 +181,13 @@
 				<div class="form-group">
 					<label class="col-sm-4 control-label"></label>
 					<div class="col-sm-8">
-						<button type="submit" id="submit" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp;Verstuur</button>
+						<button type="submit" id="submitSingle" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;&nbsp;Verstuur</button>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-4 control-label"></label>
 					<div class="col-sm-8">
-						<div id="submitStatus" class="hidden"></div>
+						<div id="submitStatusSingle" class="hidden"></div>
 					</div>
 				</div>
 				
@@ -302,7 +302,7 @@
 			var json 
 				= JSON.stringify( serializedForm );
 			
-			busyButton($jq("#submit"));
+			busyButton($jq("#submitSingle"));
 
 			$jq.ajax({
 				type : "post",
@@ -312,10 +312,10 @@
 				processData : false,
 				data : json,
 				success : function( created ) {
-					success( $jq("#submit"), $jq("#submitStatus"), "Je aanvraag werd met succes verstuurd. U hoort snel iets van me." );
+					succession( $jq("#submitSingle"), $jq("#submitStatusSingle"), "Je aanvraag werd met succes verstuurd. U hoort snel iets van me." );
 				},
 				error : function( response ) {
-					error($jq("#submit"), $jq("#submitStatus"), "Er trad een fout op. Probeer AUB opnieuw" );
+					errore($jq("#submitSingle"), $jq("#submitStatusSingle"), "Er trad een fout op. Probeer AUB opnieuw." );
 				}
 			});
 			
@@ -343,7 +343,7 @@
 			var json 
 				= JSON.stringify( serializedForm );
 			
-			busyButton($jq("#submit"));
+			busyButton($jq("#submitMultiple"));
 
 			$jq.ajax({
 				type : "post",
@@ -353,10 +353,10 @@
 				processData : false,
 				data : json,
 				success : function( created ) {
-					success( $jq("#submit"), $jq("#submitStatus"), "Je aanvraag werd met succes verstuurd. U hoort snel iets van me." );
+					succession( $jq("#submitMultiple"), $jq("#submitStatusMultiple"), "Je aanvraag werd met succes verstuurd. U hoort snel iets van me." );
 				},
 				error : function( response ) {
-					error($jq("#submit"), $jq("#submitStatus"), "Er trad een fout op. Probeer AUB opnieuw" );
+					errore($jq("#submitMultiple"), $jq("#submitStatusMultiple"), "Er trad een fout op. Probeer AUB opnieuw." );
 				}
 			});
 			

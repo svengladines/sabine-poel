@@ -1,4 +1,4 @@
-function error( button, element, message ) {
+function errore( button, element, message ) {
 	
 	doneButton( button );
 	
@@ -14,7 +14,7 @@ function error( button, element, message ) {
 	
 };
 
-function success( button, element, message ) {
+function succession( button, element, message ) {
 	
 	doneButton( button );
 	button.removeClass("btn-danger");
